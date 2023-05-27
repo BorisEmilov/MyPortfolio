@@ -1,0 +1,12 @@
+#grid-elem {
+    -webkit-box-shadow: 10px 11px 21px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 11px 21px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 11px 21px -3px rgba(0, 0, 0, 0.75);
+}
+
+#my-img {
+    -webkit-box-shadow: 10px 11px 18px -7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 11px 18px -7px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 11px 18px -7px rgba(0, 0, 0, 0.75);
+
+}

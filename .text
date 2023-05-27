@@ -1,0 +1,19 @@
+<div onClick={handleModal}>
+                        close
+                    </div>
+                    {
+                        displaySocial === 'github' &&
+                        <p className='text-[14px] md:text-[18px]'><b><a href="https://github.com/BorisEmilov">https://github.com/BorisEmilov</a></b></p>
+                    }
+                    {
+                        displaySocial === 'instagram' &&
+                        <p className='text-[14px] md:text-[18px]'><b>github</b></p>
+                    }
+                    {
+                        displaySocial === 'facebook' &&
+                        <p className='text-[14px] md:text-[18px]'><b>github</b></p>
+                    }
+                    {
+                        displaySocial === 'netlify' &&
+                        <p className='text-[14px] md:text-[18px]'><b><a href="https://app.netlify.com/teams/borisemilov/sites">https://app.netlify.com/teams/borisemilov/sites</a></b></p>
+                    }
