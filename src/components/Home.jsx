@@ -3,8 +3,8 @@ import '../aditionalStyles/webKits.css'
 import React, { useRef, useState } from 'react'
 import Nav from './Nav'
 import Me from '../assets/me.jpg'
-import { BsFacebook, BsGithub, BsInstagram } from 'react-icons/bs'
-import { SiCss3, SiHtml5, SiJavascript, SiMui, SiNetlify, SiNodedotjs, SiReact, SiTailwindcss } from 'react-icons/si'
+import { BsFacebook, BsFillTelephoneFill, BsGithub, BsInstagram, BsWhatsapp } from 'react-icons/bs'
+import { SiCss3, SiGmail, SiHtml5, SiJavascript, SiMui, SiNetlify, SiNodedotjs, SiReact, SiTailwindcss } from 'react-icons/si'
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -16,7 +16,7 @@ import weather from '../assets/weatherapp.jpg'
 import movies from '../assets/movies.jpg'
 import iphone from '../assets/iphone3d.jpg'
 import burger from '../assets/burger.jpg'
-import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md'
+import { MdContentCopy, MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md'
 import { RxCross1 } from 'react-icons/rx'
 
 
@@ -28,12 +28,29 @@ const Home = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [copyStatus, setCopyStatus] = useState('')
+
     const scrollRef = useRef(null);
+
     const handleClick = () => {
         if (scrollRef.current) {
             scrollRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const handleCopyClick = () => {
+        const textToCopy = 'bobi.emilov1@gmail.com';
+      
+        navigator.clipboard.writeText(textToCopy)
+          .then(() => {
+            setCopyStatus('Text copied!');
+          })
+          .catch((error) => {
+            setCopyStatus('Copy failed!');
+            console.error('Copy failed:', error);
+          });
+      };
+
 
 
     return (
@@ -45,25 +62,39 @@ const Home = () => {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <div className='absolute max-w-[400px] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-slate-50 flex flex-col items-center justify-center p-4 gap-4'>
+                    <div className='absolute max-w-[400px] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-slate-50 flex flex-col items-center justify-center text-center p-4 gap-4'>
                         <div onClick={handleClose} className='flex items-center justify-center p-1 bg-gray-300 rounded-[50%] cursor-pointer'>
                             <RxCross1 />
                         </div>
                         {
                             displaySocial === 'github' &&
+                            <>
+                            <p>Check all my GitHub repositories</p>
                             <p className='text-[14px] md:text-[18px] text-blue-600'><b><a href="https://github.com/BorisEmilov">https://github.com/BorisEmilov</a></b></p>
+                            </>
                         }
                         {
                             displaySocial === 'instagram' &&
                             <p className='text-[14px] md:text-[18px] text-blue-600'><b>github</b></p>
                         }
                         {
-                            displaySocial === 'facebook' &&
-                            <p className='text-[14px] md:text-[18px] text-blue-600'><b>github</b></p>
+                            displaySocial === 'gmail' &&
+                            <>
+                            <p>Contact with me by Gmail...</p>
+                            <div className='flex items-center justify-center gap-3'>
+                            <p className='text-[14px] md:text-[18px] text-gray-600'><b>bobi.emilov1@gmail.com</b></p>
+                            <div onClick={handleCopyClick} className='flex items-center justify-center p-1 bg-slate-300 rounded-[50%] cursor-pointer'>
+                            <MdContentCopy />
+                            </div>
+                            </div>
+                            </>
                         }
                         {
-                            displaySocial === 'netlify' &&
-                            <p className='text-[14px] md:text-[18px] text-blue-600'><b><a href="https://app.netlify.com/teams/borisemilov/sites">https://app.netlify.com/teams/borisemilov/sites</a></b></p>
+                            displaySocial === 'phone' &&
+                            <>
+                            <p><b>Text me on Whatsapp</b></p>
+                            <p className='text-[14px] md:text-[18px] text-blue-600'><b>+34 600556464</b></p>
+                            </>
                         }
                     </div>
                 </Modal>
@@ -93,13 +124,13 @@ const Home = () => {
                             </div>
                         </div>
                         <div onClick={handleOpen}>
-                            <div id='my-img' onClick={() => setDisplaySocial('facebook')} className={`flex items-center justify-center p-2 rounded-[50%] cursor-pointer backdrop-blur-sm bg-white/30`}>
-                                <BsFacebook size={30} />
+                            <div id='my-img' onClick={() => setDisplaySocial('gmail')} className={`flex items-center justify-center p-2 rounded-[50%] cursor-pointer backdrop-blur-sm bg-white/30`}>
+                                <SiGmail size={30} />
                             </div>
                         </div>
                         <div onClick={handleOpen}>
-                            <div id='my-img' onClick={() => setDisplaySocial('netlify')} className={`flex items-center justify-center p-2 rounded-[50%] cursor-pointer backdrop-blur-sm bg-white/30`}>
-                                <SiNetlify size={30} />
+                            <div id='my-img' onClick={() => setDisplaySocial('phone')} className={`flex items-center justify-center p-2 rounded-[50%] cursor-pointer backdrop-blur-sm bg-white/30`}>
+                                <BsWhatsapp size={30} />
                             </div>
                         </div>
                     </div>
