@@ -3,7 +3,7 @@ import '../aditionalStyles/webKits.css'
 import React, { useRef, useState } from 'react'
 import Nav from './Nav'
 import Me from '../assets/me.jpg'
-import { BsFacebook, BsFillTelephoneFill, BsGithub, BsInstagram, BsWhatsapp } from 'react-icons/bs'
+import { BsFacebook, BsFillSendFill, BsFillTelephoneFill, BsGithub, BsInstagram, BsWhatsapp } from 'react-icons/bs'
 import { SiCss3, SiGmail, SiHtml5, SiJavascript, SiMui, SiNetlify, SiNodedotjs, SiReact, SiTailwindcss } from 'react-icons/si'
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -74,10 +74,6 @@ const Home = () => {
                             </>
                         }
                         {
-                            displaySocial === 'instagram' &&
-                            <p className='text-[14px] md:text-[18px] text-blue-600'><b>github</b></p>
-                        }
-                        {
                             displaySocial === 'gmail' &&
                             <>
                             <p>Contact with me by Gmail...</p>
@@ -102,7 +98,7 @@ const Home = () => {
 
 
             <div className='w-[100vw] h-[100vh] flex flex-col items-center justify-start overflow-auto'>
-                <div id='info' className='w-[100%] min-h-[100vh] flex flex-col items-center justify-end bg-gradient-to-r from-cyan-500 to-blue-500 p-2'>
+                <div id='info' className='w-[100%] min-h-[100vh] flex flex-col items-center justify-end text-white bg-gradient-to-r from-[#468faf] to-[#014f86] p-2'>
                     <Nav />
                     <div className='w-[100%] h-[100%] flex flex-col md:flex-row items-center justify-center gap-4 mt-2'>
                         <div className='max-w-[400px] flex flex-col items-center justify-center text-center gap-3'>
@@ -116,11 +112,6 @@ const Home = () => {
                         <div onClick={handleOpen}>
                             <div id='my-img' onClick={() => setDisplaySocial('github')} className={`flex items-center justify-center p-2 rounded-[50%] cursor-pointer backdrop-blur-sm bg-white/30`}>
                                 <BsGithub size={30} />
-                            </div>
-                        </div>
-                        <div onClick={handleOpen}>
-                            <div id='my-img' onClick={() => setDisplaySocial('instagram')} className={`flex items-center justify-center p-2 rounded-[50%] cursor-pointer backdrop-blur-sm bg-white/30`}>
-                                <BsInstagram size={30} />
                             </div>
                         </div>
                         <div onClick={handleOpen}>
@@ -334,7 +325,18 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-
+                <div id='contact' className='w-[100vw] min-h-[100vh] flex flex-col items-center justify-center bg-gradient-to-r from-[#003049] to-[#669bbc] p-2 text-white gap-8'>
+                    <div className='flex flex-col items-center justify-center'>
+                    <p className='text-[20px] md:text-[24px]'><b>Contact with me ...</b></p>
+                    <SiGmail size={40} />
+                    </div>
+                    <form action="#" className='w-[90%] max-w-[500px] flex flex-col items-center justify-center gap-4'>
+                        <input type="text" placeholder='Name' className='w-[80%] h-[30px] text-center rounded-[15px] text-black'  required/>
+                        <input type="text" placeholder='Email' className='w-[80%] h-[30px] text-center rounded-[15px] text-black' required />
+                        <textarea name="text" id="text" cols="30" rows="10" placeholder='enter your message...' className='w-[90%] text-black rounded-[15px]'></textarea>
+                        <button className='w-[75px] flex items-center justify-center gap-2 bg-[#0466c8] p-1 rounded-[15px]'>Send <BsFillSendFill /></button>
+                    </form>
+                </div>
             </div>
         </>
     )
