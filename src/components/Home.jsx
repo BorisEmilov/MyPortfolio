@@ -240,7 +240,7 @@ const Home = () => {
                                 <div className='flex items-center justify-center p-2 rounded-[50%] bg-[#adb5bd]'>
                                     <GrHeroku size={25} color='black' />
                                 </div>
-                                <a href='https://react-vite-weatherapp.netlify.app/' className='text-blue-600'><b>OPEN APP</b></a>
+                                <a href='https://api-movie-01.herokuapp.com/' className='text-blue-600'><b>OPEN APP</b></a>
                             </div>
                             <div className='w-[100%] h-[100%] flex items-center justify-center gap-2'>
                                 <img src={movieAPI} alt="/" className='h-[170px] w-[100px]' />
