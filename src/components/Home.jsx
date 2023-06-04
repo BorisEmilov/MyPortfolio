@@ -18,6 +18,8 @@ import iphone from '../assets/iphone3d.jpg'
 import burger from '../assets/burger.jpg'
 import { MdContentCopy, MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md'
 import { RxCross1 } from 'react-icons/rx'
+import {GrHeroku} from 'react-icons/gr'
+import movieAPI from '../assets/heroku-movieAPI.png'
 
 
 
@@ -101,9 +103,9 @@ const Home = () => {
                 <div id='info' className='w-[100%] min-h-[100vh] flex flex-col items-center justify-end text-white bg-gradient-to-r from-[#468faf] to-[#014f86] p-2'>
                     <Nav />
                     <div className='w-[100%] h-[100%] flex flex-col md:flex-row items-center justify-center gap-4 mt-2'>
-                        <div className='max-w-[400px] flex flex-col items-center justify-center text-center gap-3'>
-                            <p className='text-[20px]'><b>Boris Emilov, ReactJS Developer and UI designs</b></p>
-                            <p className='text-[14px] md:text-[16px]'>I work as a freelance creating small and medium projects of web applications with react, currently I am in the process of learning back-end, MySQL/Postgress and 3D models with ThreeJS.</p>
+                        <div className='max-w-[400px] flex flex-col items-center justify-center text-center'>
+                            <p className='text-[20px]'><b>I´m Boris Emilov, ReactJS and API Developer</b></p>
+                            <p className='text-[14px] md:text-[16px]'>I work as a freelance creating small and medium projects of web applications with react, currently my most solid knowledge are React, tailwind, MaterialUI, and web scrape with cheerio, node and express, now I am expanding my knowledge on interactive page design with 3D technology and MySQL and PostgressSQL databases.</p>
                         </div>
                         <img src={Me} id='my-img' alt="/" className='w-[150px] rounded-xl md:w-[170px]' />
                     </div>
@@ -125,13 +127,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-[100%] flex items-center justify-center p-1 text-white'>
-                        <div onClick={handleClick} className='w-[60%] max-w-[400px] flex items-center justify-center gap-4 rounded-[15px] bg-[#118ab2] border-solid border-[1px] border-black cursor-pointer'>
-                            <MdOutlineKeyboardDoubleArrowDown size={20} />
-                            <p><b>Skills</b></p>
-                            <MdOutlineKeyboardDoubleArrowDown size={20} />
-                        </div>
-                    </div>
+                    
                 </div>
                 <div id='skills' ref={scrollRef} className='w-[100%] min-h-[100vh] flex items-center justify-center'>
 
@@ -239,6 +235,27 @@ const Home = () => {
                 <div id='projects' className='w-[100%] flex flex-col items-center justify-start bg-gradient-to-r from-[#1d3557] to-[#457b9d] p-2 text-white'>
                     <p className='text-[20px] md:text-[24px] mt-[40px]'><b>Projects</b></p>
                     <div className='w-[100%] max-w-[250px]  md:max-w-[600px] grid grid-cols-1 md:grid-cols-2 items-center justify-items-center p-2 gap-8'>
+                    <div className='w-[100%] h-[250px] flex flex-col items-center justify-start p-2 bg-[#e5e5e5]' id='grid-elem'>
+                            <div className='w-[100%] flex items-center justify-start p-2 gap-2'>
+                                <div className='flex items-center justify-center p-2 rounded-[50%] bg-[#adb5bd]'>
+                                    <GrHeroku size={25} color='black' />
+                                </div>
+                                <a href='https://react-vite-weatherapp.netlify.app/' className='text-blue-600'><b>OPEN APP</b></a>
+                            </div>
+                            <div className='w-[100%] h-[100%] flex items-center justify-center gap-2'>
+                                <img src={movieAPI} alt="/" className='h-[170px] w-[100px]' />
+                                <div className='w-[100%] flex flex-col items-center justify-end gap-2'>
+                                    <div className='w-[100%] flex items-center justify-center text-center text-black text-[12px] md:text-[14px]'>
+                                        <p>Back-end project of movies API from scraped web made with nodeJS, Express, Axios and Cheerio</p>
+                                    </div>
+                                    <div className='w-[100%] flex items-center justify-center gap-2'>
+                                        <BsGithub color='black' size={20} />
+                                        <a href="https://github.com/BorisEmilov/movieAPI" className='text-[12px] text-black'><b>GitHub Repo</b></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div className='w-[100%] h-[250px] flex flex-col items-center justify-start p-2 bg-[#e5e5e5]' id='grid-elem'>
                             <div className='w-[100%] flex items-center justify-start p-2 gap-2'>
                                 <div className='flex items-center justify-center p-2 rounded-[50%] bg-[#adb5bd]'>
