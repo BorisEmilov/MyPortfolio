@@ -18,8 +18,9 @@ import iphone from '../assets/iphone3d.jpg'
 import burger from '../assets/burger.jpg'
 import { MdContentCopy, MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md'
 import { RxCross1 } from 'react-icons/rx'
-import {GrHeroku} from 'react-icons/gr'
+import { GrHeroku } from 'react-icons/gr'
 import movieAPI from '../assets/heroku-movieAPI.png'
+import emailjs from '@emailjs/browser';
 
 
 
@@ -32,6 +33,19 @@ const Home = () => {
     const handleClose = () => setOpen(false);
     const [copyStatus, setCopyStatus] = useState('')
 
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_kdhwgxo', 'template_6cq7yxx', form.current, '7hiL9ih8dpZ4lLb7e')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
     const scrollRef = useRef(null);
 
     const handleClick = () => {
@@ -41,17 +55,17 @@ const Home = () => {
     };
 
     const handleCopyClick = () => {
-        const textToCopy = 'bobi.emilov1@gmail.com';
-      
+        const textToCopy = 'react.dev77@gmail.com';
+
         navigator.clipboard.writeText(textToCopy)
-          .then(() => {
-            setCopyStatus('Text copied!');
-          })
-          .catch((error) => {
-            setCopyStatus('Copy failed!');
-            console.error('Copy failed:', error);
-          });
-      };
+            .then(() => {
+                setCopyStatus('Text copied!');
+            })
+            .catch((error) => {
+                setCopyStatus('Copy failed!');
+                console.error('Copy failed:', error);
+            });
+    };
 
 
 
@@ -71,27 +85,27 @@ const Home = () => {
                         {
                             displaySocial === 'github' &&
                             <>
-                            <p>Check all my GitHub repositories</p>
-                            <p className='text-[14px] md:text-[18px] text-blue-600'><b><a href="https://github.com/BorisEmilov">https://github.com/BorisEmilov</a></b></p>
+                                <p>Check all my GitHub repositories</p>
+                                <p className='text-[14px] md:text-[18px] text-blue-600'><b><a href="https://github.com/BorisEmilov">https://github.com/BorisEmilov</a></b></p>
                             </>
                         }
                         {
                             displaySocial === 'gmail' &&
                             <>
-                            <p>Contact with me by Gmail...</p>
-                            <div className='flex items-center justify-center gap-3'>
-                            <p className='text-[14px] md:text-[18px] text-gray-600'><b>bobi.emilov1@gmail.com</b></p>
-                            <div onClick={handleCopyClick} className='flex items-center justify-center p-1 bg-slate-300 rounded-[50%] cursor-pointer'>
-                            <MdContentCopy />
-                            </div>
-                            </div>
+                                <p>Contact with me by Gmail...</p>
+                                <div className='flex items-center justify-center gap-3'>
+                                    <p className='text-[14px] md:text-[18px] text-gray-600'><b>react.dev77@gmail.com</b></p>
+                                    <div onClick={handleCopyClick} className='flex items-center justify-center p-1 bg-slate-300 rounded-[50%] cursor-pointer'>
+                                        <MdContentCopy />
+                                    </div>
+                                </div>
                             </>
                         }
                         {
                             displaySocial === 'phone' &&
                             <>
-                            <p><b>Text me on Whatsapp</b></p>
-                            <p className='text-[14px] md:text-[18px] text-blue-600'><b>+34 600556464</b></p>
+                                <p><b>Text me on Whatsapp</b></p>
+                                <p className='text-[14px] md:text-[18px] text-blue-600'><b>+34 600556464</b></p>
                             </>
                         }
                     </div>
@@ -127,7 +141,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div id='skills' ref={scrollRef} className='w-[100%] min-h-[100vh] flex items-center justify-center'>
 
@@ -235,7 +249,7 @@ const Home = () => {
                 <div id='projects' className='w-[100%] flex flex-col items-center justify-start bg-gradient-to-r from-[#1d3557] to-[#457b9d] p-2 text-white'>
                     <p className='text-[20px] md:text-[24px] mt-[40px]'><b>Projects</b></p>
                     <div className='w-[100%] max-w-[250px]  md:max-w-[600px] grid grid-cols-1 md:grid-cols-2 items-center justify-items-center p-2 gap-8'>
-                    <div className='w-[100%] h-[250px] flex flex-col items-center justify-start p-2 bg-[#e5e5e5]' id='grid-elem'>
+                        <div className='w-[100%] h-[250px] flex flex-col items-center justify-start p-2 bg-[#e5e5e5]' id='grid-elem'>
                             <div className='w-[100%] flex items-center justify-start p-2 gap-2'>
                                 <div className='flex items-center justify-center p-2 rounded-[50%] bg-[#adb5bd]'>
                                     <GrHeroku size={25} color='black' />
@@ -344,14 +358,23 @@ const Home = () => {
                 </div>
                 <div id='contact' className='w-[100vw] min-h-[100vh] flex flex-col items-center justify-center bg-gradient-to-r from-[#003049] to-[#669bbc] p-2 text-white gap-8'>
                     <div className='flex flex-col items-center justify-center'>
-                    <p className='text-[20px] md:text-[24px]'><b>Contact with me ...</b></p>
-                    <SiGmail size={40} />
+                        <p className='text-[20px] md:text-[24px]'><b>Contact with me ...</b></p>
+                        <SiGmail size={40} />
                     </div>
-                    <form action="#" className='w-[90%] max-w-[500px] flex flex-col items-center justify-center gap-4'>
-                        <input type="text" placeholder='Name' className='w-[80%] h-[30px] text-center rounded-[15px] text-black'  required/>
-                        <input type="text" placeholder='Email' className='w-[80%] h-[30px] text-center rounded-[15px] text-black' required />
-                        <textarea name="text" id="text" cols="30" rows="10" placeholder='enter your message...' className='w-[90%] text-black rounded-[15px]'></textarea>
-                        <button className='w-[75px] flex items-center justify-center gap-2 bg-[#0466c8] p-1 rounded-[15px]'>Send <BsFillSendFill /></button>
+                    <form ref={form} onSubmit={sendEmail} className=' w-[90%] flex flex-col items-center justify-center gap-4'>
+                        
+                        <label>Name</label>
+                        <input type="text" name="user_name" className='text-black w-[70%] max-w-[400px]' />
+                        
+                        
+                        <label>Email</label>
+                        <input type="email" name="user_email" className='text-black w-[70%] max-w-[400px]' />
+                        
+                        
+                        <label>Message</label>
+                        <textarea name="message" className='text-black w-[70%] max-w-[400px]' />
+                        
+                        <input type="submit" value="Send" className='bg-[#219ebc] w-[500%] max-w-[300px] p-2 rounded-[15px] cursor-pointer' />
                     </form>
                 </div>
             </div>
